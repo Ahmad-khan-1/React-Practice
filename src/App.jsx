@@ -9,6 +9,8 @@ import {
 } from "./components/day-2-render-list-in-react/scrip";
 import { Card } from "./components/day-3-Props/scrip";
 import { MoodBoardItem } from "./components/day-3-Props/scrip2";
+import { ChangeState } from "./components/day-4-State-in-react/script";
+import UpdatingState from "./components/Updating-object-in-state/script";
 
 function App() {
   const loggedIN = "true";
@@ -36,7 +38,8 @@ function App() {
           />
         );
       })}
-      <div className="mood-board">
+      <ChangeState />
+      {/* <div className="mood-board">
         <MoodBoardItem
           color="lightblue"
           image="https://cdn.freecodecamp.org/curriculum/labs/shore.jpg"
@@ -52,7 +55,8 @@ function App() {
           image="https://cdn.freecodecamp.org/curriculum/labs/pathway.jpg"
           description="Serene Forest"
         />
-      </div>
+      </div> */}
+      <UpdatingState />
     </>
   );
 }

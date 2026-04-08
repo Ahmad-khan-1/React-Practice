@@ -10,6 +10,7 @@ import {
 import { Card } from "./components/day-3-Props/scrip";
 import { MoodBoardItem } from "./components/day-3-Props/scrip2";
 import { ChangeState } from "./components/day-4-State-in-react/script";
+import { UpdatingArry } from "./components/Updating-array/scrip";
 import { UpdatingState } from "./components/Updating-object-in-state/script";
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
         />
       </div> */}
       <UpdatingState />
+      <UpdatingArry />
     </>
   );
 }

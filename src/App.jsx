@@ -13,6 +13,7 @@ import { ChangeState } from "./components/day-4-State-in-react/script";
 import { TodoTextApp } from "./components/day-5-Todo-text-app/script";
 import { UpdatingArry } from "./components/Updating-array/scrip";
 import { UpdatingState } from "./components/Updating-object-in-state/script";
+import ColorPickerApp from "./components/Day-6-Color-picker-app/script";
 
 function App() {
   const loggedIN = "true";
@@ -61,6 +62,7 @@ function App() {
       <UpdatingState />
       <UpdatingArry />
       <TodoTextApp />
+      <ColorPickerApp />
     </>
   );
 }

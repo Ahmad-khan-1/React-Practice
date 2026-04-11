@@ -14,6 +14,7 @@ import { TodoTextApp } from "./components/day-5-Todo-text-app/script";
 import { UpdatingArry } from "./components/Updating-array/scrip";
 import { UpdatingState } from "./components/Updating-object-in-state/script";
 import ColorPickerApp from "./components/Day-6-Color-picker-app/script";
+import CheckReference from "./components/day-6-useRef/scrip";
 
 function App() {
   const loggedIN = "true";
@@ -27,10 +28,12 @@ function App() {
   ];
   return (
     <>
+      <CheckReference />
       <Greeting isLoggedIn={loggedIN} />
       <UserCheck />
       <ListRendering />
       <FruitList />
+
       {profiles.map((profiles) => {
         return (
           <Card

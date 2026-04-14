@@ -15,7 +15,10 @@ import { UpdatingArry } from "./components/Updating-array/scrip";
 import { UpdatingState } from "./components/Updating-object-in-state/script";
 import ColorPickerApp from "./components/Day-6-Color-picker-app/script";
 import CheckReference from "./components/day-6-useRef/scrip";
-
+import Effect from "./components/Day-8-UseEffect/script";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
 function App() {
   const loggedIN = "true";
   const profiles = [
@@ -27,12 +30,20 @@ function App() {
     },
   ];
   return (
-    <>
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link> |<Link to="/about">About</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
       <CheckReference />
       <Greeting isLoggedIn={loggedIN} />
       <UserCheck />
       <ListRendering />
       <FruitList />
+      <Effect />
 
       {profiles.map((profiles) => {
         return (
@@ -66,7 +77,7 @@ function App() {
       <UpdatingArry />
       <TodoTextApp />
       <ColorPickerApp />
-    </>
+    </BrowserRouter>
   );
 }
 

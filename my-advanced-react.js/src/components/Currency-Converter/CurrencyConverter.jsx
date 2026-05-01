@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
+
 const CurrencyConverter = () => {
   const [amount, setAmount] = useState("");
   const [fromCurrency, setFromCurrency] = useState("USD");
@@ -13,26 +14,19 @@ const CurrencyConverter = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "amount") {
-      setAmount(value);
-    } else if (name === "fromCurrency") {
-      setFromCurrency(value);
-    } else if (name === "toCurrency") {
-      setToCurrency(value);
-    }
+    if (name === "amount") setAmount(value);
+    else if (name === "fromCurrency") setFromCurrency(value);
+    else if (name === "toCurrency") setToCurrency(value);
   };
 
-  const convertedAmount = useMemo(() => {
+  const baseAmountInUSD = useMemo(() => {
     if (!amount) return 0;
-
     const amountNumber = Number(amount);
-
     const fromRate = rates[fromCurrency];
-    const toRate = rates[toCurrency];
+    return amountNumber / fromRate;
+  }, [amount, fromCurrency]);
 
-    return (amountNumber / fromRate) * toRate;
-  }, [amount, fromCurrency, toCurrency]);
+  const finalConvertedAmount = baseAmountInUSD * rates[toCurrency];
 
   return (
     <div>
@@ -50,7 +44,7 @@ const CurrencyConverter = () => {
       <br />
       <br />
 
-      <label>From Currency:</label>
+      <label>Start Currency:</label>
       <br />
       <select name="fromCurrency" value={fromCurrency} onChange={handleChange}>
         <option value="USD">USD</option>
@@ -62,7 +56,7 @@ const CurrencyConverter = () => {
       <br />
       <br />
 
-      <label>To Currency:</label>
+      <label>Target Currency:</label>
       <br />
       <select name="toCurrency" value={toCurrency} onChange={handleChange}>
         <option value="USD">USD</option>
@@ -77,11 +71,10 @@ const CurrencyConverter = () => {
       <p>
         <b>Converted Amount:</b>{" "}
         {amount
-          ? `${convertedAmount.toFixed(2)} ${toCurrency}`
+          ? `${finalConvertedAmount.toFixed(2)} ${toCurrency}`
           : `0.00 ${toCurrency}`}
       </p>
     </div>
   );
 };
-
 export default CurrencyConverter;

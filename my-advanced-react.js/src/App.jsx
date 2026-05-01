@@ -8,12 +8,14 @@ import { Navigate } from "react-router-dom";
 import Tool from "./React-Dev-tool/Tool";
 import { ReactForm } from "./components/ReactForm";
 import { UseRef } from "./components/UseRef";
+import CurrencyConverter from "./components/Currency-Converter/CurrencyConverter";
 
 function App() {
   console.log(window.history);
   return (
     <>
       <Navbar />
+      <CurrencyConverter />
       {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -24,7 +26,6 @@ function App() {
 
       <Tool />
       <ReactForm />
-      <UseRef />
     </>
   );
 }

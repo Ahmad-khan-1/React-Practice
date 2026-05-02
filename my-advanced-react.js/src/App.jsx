@@ -9,6 +9,7 @@ import Tool from "./React-Dev-tool/Tool";
 import { ReactForm } from "./components/ReactForm";
 import { UseRef } from "./components/UseRef";
 import CurrencyConverter from "./components/Currency-Converter/CurrencyConverter";
+import ProtectedDashboard from "./components/Higher-Order-component/ProtectedDashboard";
 
 function App() {
   console.log(window.history);
@@ -23,7 +24,7 @@ function App() {
         <Route path="/contact/:cid" element={<CostumerContact />} />
         <Route path="/customer" element={<Navigate to="/" />} />
       </Routes> */}
-
+      <ProtectedDashboard />
       <Tool />
       <ReactForm />
     </>
